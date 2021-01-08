@@ -17,7 +17,7 @@
     <header>
         {{ view('header') }}
     </header>
-    <div class="body">
+    <div class="body container">
         @yield('content')
     </div>
 

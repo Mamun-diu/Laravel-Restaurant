@@ -14,7 +14,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="#">Add</a>
+            <a class="nav-link " href="{{ URL::to('/add') }}">Add</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="#">Search</a>

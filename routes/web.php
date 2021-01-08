@@ -20,3 +20,8 @@ use App\Http\Controllers\RestoController;
 
 Route::get('/', [RestoController::class, 'index']);
 Route::get('list', [RestoController::class, 'list']);
+Route::get('add', [RestoController::class, 'add']);
+Route::post('save', [RestoController::class, 'save']);
+Route::get('delete/{id}', [RestoController::class, 'delete']);
+Route::get('edit/{id}', [RestoController::class, 'edit']);
+Route::post('update/{id}', [RestoController::class, 'update']);
