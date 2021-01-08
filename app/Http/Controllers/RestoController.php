@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\User;
+use Hash;
 use Session;
 class RestoController extends Controller
 {
@@ -46,5 +48,14 @@ class RestoController extends Controller
         Session::flash('status', "Restaurant Update Successfully");
         return redirect('/list');
 
+    }
+
+    function register(Request $req){
+        $user = new User;
+        $user->name = $req->name;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->password);
+        $user->save();
+        return redirect('login');
     }
 }

@@ -25,3 +25,6 @@ Route::post('save', [RestoController::class, 'save']);
 Route::get('delete/{id}', [RestoController::class, 'delete']);
 Route::get('edit/{id}', [RestoController::class, 'edit']);
 Route::post('update/{id}', [RestoController::class, 'update']);
+Route::view('register', 'register');
+Route::post('register', [RestoController::class, 'register']);
+Route::view('login', 'login');

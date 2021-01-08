@@ -23,7 +23,7 @@
             <a class="nav-link " href="#">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Register</a>
+            <a class="nav-link " href="{{ URL::to('/register') }}">Register</a>
           </li>
         </ul>
 
