@@ -58,4 +58,24 @@ class RestoController extends Controller
         $user->save();
         return redirect('login');
     }
+    function login(Request $req){
+        $user = User::where('email',$req->email)->first();
+        if($user){
+            if(Hash::check($req->password, $user->password)){
+                $req->session()->put('user', $user->name);
+                return redirect('/');
+            }else{
+                $req->session()->flash('status', 'Password not match');
+                return Redirect()->back();
+            }
+        }else{
+            $req->session()->flash('status', 'Email Address not found');
+                return Redirect()->back();
+        }
+
+    }
+    function logout(){
+        Session::forget('user');
+        return redirect('login');
+    }
 }

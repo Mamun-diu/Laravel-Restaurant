@@ -2,9 +2,15 @@
 @section('content')
     <div>
         <h1 class="display-4 text-center">User Login page</h1>
+
         <div class="row mt-5">
             <div class="col-sm-6 offset-sm-3">
-                <form action="" method="post">
+                @if(Session::get('status'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('status') }}
+                    </div>
+                @endif
+                <form action="{{ URL::to('/login') }}" method="post">
                     @csrf
 
                     <div class="form-group">

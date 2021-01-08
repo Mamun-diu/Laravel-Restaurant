@@ -19,12 +19,22 @@
           <li class="nav-item">
             <a class="nav-link " href="#">Search</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#">Login</a>
+
+          @if(Session::get('user'))
+          <li class="nav-item ">
+            <a class="nav-link " href="#">{{ Session::get('user') }}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{ URL::to('/register') }}">Register</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{ URL::to('logout') }}">Logout</a>
           </li>
+          @else
+            <li class="nav-item">
+                <a class="nav-link " href="{{ URL::to('/login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ URL::to('/register') }}">Register</a>
+            </li>
+          @endif
         </ul>
 
       </div>

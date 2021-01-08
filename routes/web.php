@@ -18,13 +18,20 @@ use App\Http\Controllers\RestoController;
 //     return view('welcome');
 // });
 
-Route::get('/', [RestoController::class, 'index']);
-Route::get('list', [RestoController::class, 'list']);
-Route::get('add', [RestoController::class, 'add']);
-Route::post('save', [RestoController::class, 'save']);
-Route::get('delete/{id}', [RestoController::class, 'delete']);
-Route::get('edit/{id}', [RestoController::class, 'edit']);
-Route::post('update/{id}', [RestoController::class, 'update']);
-Route::view('register', 'register');
-Route::post('register', [RestoController::class, 'register']);
-Route::view('login', 'login');
+
+
+Route::group(['middleware' => 'web'], function () {
+
+    Route::get('/', [RestoController::class, 'index']);
+    Route::view('register', 'register');
+    Route::post('register', [RestoController::class, 'register']);
+    Route::view('login', 'login');
+    Route::post('login', [RestoController::class, 'login']);
+    Route::get('logout', [RestoController::class, 'logout']);
+    Route::get('list', [RestoController::class, 'list']);
+    Route::get('add', [RestoController::class, 'add']);
+    Route::post('save', [RestoController::class, 'save']);
+    Route::get('delete/{id}', [RestoController::class, 'delete']);
+    Route::get('edit/{id}', [RestoController::class, 'edit']);
+    Route::post('update/{id}', [RestoController::class, 'update']);
+});
